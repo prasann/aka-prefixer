@@ -1,21 +1,22 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/prefix.css" />
+    <link rel="stylesheet" href="css/vendor/tiny-autocomplete.css" />
   </head>
 
   <form id="prefix-form">
     <!-- <button id="go-to-options">Go to options</button> -->
-    <div class="autocomplete">
-      <input
+    <input
+        class="autocomplete"
         id="prefix-input"
         type="textbox"
         name="prefix"
         autofocus
         placeholder="https://aka.ms/"
       />
-    </div>
   </form>
+  <script src="js/vendor/jquery-3.6.1.min.js"></script>
+  <script src="js/vendor/tiny-autocomplete.js"></script>
   <script src="js/persist.js"></script>
-  <script src="js/autocomplete.js"></script>
   <script src="js/prefix.js"></script>
 </html>

@@ -1,8 +1,7 @@
 "use strict";
 
-function addPrefix(form) {
-  const data = new FormData(form);
-  const prefix = data.get("prefix");
+function saveAndRedirect() {
+  const prefix = $("#prefix-input").val();
   const urlVal = "https://aka.ms/" + prefix;
   saveToChrome(prefix, function () {
     chrome.tabs.create({ url: urlVal });
@@ -11,25 +10,35 @@ function addPrefix(form) {
 
 function openOptions(event) {
   event.preventDefault();
-  try{
+  try {
     if (chrome.runtime.openOptionsPage) {
       chrome.runtime.openOptionsPage();
     } else {
-      window.open(chrome.runtime.getURL('src/options.html'));
+      window.open(chrome.runtime.getURL("src/options.html"));
     }
-  }catch(err){
-    alert(err)
+  } catch (err) {
+    alert(err);
   }
-  
 }
 
 (async () => {
-  const savedAkaTerms = await getSavedItems()
-  autocomplete(document.getElementById("prefix-input"), savedAkaTerms)
+  const savedAkaTerms = await getSavedItems();
+  const transformedTerms = savedAkaTerms.map((term, i) => ({title: term, id: i}))
 
-  const form = document.getElementById("prefix-form");
-  form.addEventListener("submit", () => addPrefix(form));
-  
-  const optionsBtn = document.querySelector('#go-to-options')
-  optionsBtn.addEventListener('click', openOptions);
+  $(".autocomplete").tinyAutocomplete({
+    data: transformedTerms,
+    maxItems: 5,
+    onSelect: function(el, val) {
+      if (val != null) {
+        $(this).val(val.title);
+      } 
+      $("#prefix-form").trigger("submit");
+    }
+  });
+
+  $(".autocomplete").trigger("focus");
+  $("#prefix-form").on("submit", saveAndRedirect);  
+
+  // const optionsBtn = document.querySelector("#go-to-options");
+  // optionsBtn.addEventListener("click", openOptions);
 })();
