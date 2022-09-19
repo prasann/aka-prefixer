@@ -1,19 +1,26 @@
-function fillInOptions(savedAkaTerms){
-    const tableBody = document.createElement('tbody');
+function listItem(text) {
+  return $("<li>")
+    .attr("class", "list-item")
+    .append($("<span>").text(text))
+    .append(
+      $("<img>")
+        .attr("src", "images/delete-30.png")
+        .attr("width", "16")
+        .attr("height", "16")
+        .attr("class", "list-item-del")
+    );
+}
 
-    const rows = savedAkaTerms.forEach((term) => {
-        const row = document.createElement('tr');
-        const cell = document.createElement('td');
-        cell.appendChild(document.createTextNode(term))
-        row.appendChild(cell);
-        tableBody.appendChild(row)
-    })
+function fillInOptions(savedAkaTerms) {
+  $("#aka-terms").append(savedAkaTerms.map(listItem));
+}
 
-    const table = document.getElementById("aka-terms");
-    table.appendChild(tableBody)
+function deleteItem(){
+    
 }
 
 (async () => {
-  const savedAkaTerms = await getSavedItems()
+  const savedAkaTerms = await getSavedItems();
   fillInOptions(savedAkaTerms);
+  $("list-item-del").on("click", deleteItem)
 })();

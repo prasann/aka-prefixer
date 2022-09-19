@@ -1,8 +1,20 @@
 #prefix-input {
-  padding: 0.2rem;
+  margin-top: 5px;
+  padding: 0.3rem;
 }
 
-.label-info {
+.header {
   color: #d74270;
-  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.header img{
+  cursor: pointer;
+}
+
+.hint-text{
+  font-size: 85%;
+  font-style: italic;
 }

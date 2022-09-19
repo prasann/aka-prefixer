@@ -1,14 +1,18 @@
 <html>
-    <head></head>
+    <head>
+        <link rel="stylesheet" href="css/options.css" />
     </head>
     <body>
         <div>
-            List of AKA Terms
-            <table id="aka-terms">
-                
-            </table>
+            Saved AKA Terms
+            <div class="hint-text">
+                (this is stored locally, and synced by browser across devices)
+            </div>
+            <ul id="aka-terms"/>
         </div>
     </body>
+    <script src="js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="js/vendor/tiny-autocomplete.js"></script>
     <script src="js/persist.js"></script>
     <script src="js/options.js"></script>
 </html>

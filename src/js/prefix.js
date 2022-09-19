@@ -37,8 +37,6 @@ function openOptions(event) {
   });
 
   $(".autocomplete").trigger("focus");
-  $("#prefix-form").on("submit", saveAndRedirect);  
-
-  // const optionsBtn = document.querySelector("#go-to-options");
-  // optionsBtn.addEventListener("click", openOptions);
+  $("#prefix-form").on("submit", saveAndRedirect);
+  $("#go-to-options").on("click", openOptions);
 })();

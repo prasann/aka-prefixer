@@ -5,8 +5,15 @@
   </head>
 
   <form id="prefix-form">
-    <!-- <button id="go-to-options">Go to options</button> -->
-    <input
+    <div class="header">
+      <span><b>AKA prefixer</b></span>
+      <img id="go-to-options" src="images/settings-50.png" width="16" height="16" />
+    </div>
+    <div>
+      <span class="hint-text">type suffix and hit enter</span>
+    </div>
+    <div>
+      <input
         class="autocomplete"
         id="prefix-input"
         type="textbox"
@@ -14,6 +21,8 @@
         autofocus
         placeholder="https://aka.ms/"
       />
+    </div>
+    
   </form>
   <script src="js/vendor/jquery-3.6.1.min.js"></script>
   <script src="js/vendor/tiny-autocomplete.js"></script>
