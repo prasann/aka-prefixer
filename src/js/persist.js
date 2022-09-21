@@ -1,11 +1,9 @@
-function saveToChrome(term, callback) {
+function saveToChrome(term) {
   chrome.storage.sync.get({ akaTerms: [] }, function (result) {
     const usedItemSet = result.akaTerms;
     const purgedSet = new Set(usedItemSet)
     purgedSet.add(term)
-    chrome.storage.sync.set({ akaTerms: [...purgedSet] }, function () {
-      callback()
-    });
+    chrome.storage.sync.set({ akaTerms: [...purgedSet] });
   });
 }
 

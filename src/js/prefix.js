@@ -3,9 +3,10 @@
 function saveAndRedirect() {
   const prefix = $("#prefix-input").val();
   const urlVal = "https://aka.ms/" + prefix;
-  saveToChrome(prefix, function () {
+  if (prefix) {
+    saveToChrome(prefix);
     chrome.tabs.create({ url: urlVal });
-  });
+  }
 }
 
 function openOptions(event) {
@@ -23,17 +24,20 @@ function openOptions(event) {
 
 (async () => {
   const savedAkaTerms = await getSavedItems();
-  const transformedTerms = savedAkaTerms.map((term, i) => ({title: term, id: i}))
+  const transformedTerms = savedAkaTerms.map((term, i) => ({
+    title: term,
+    id: i,
+  }));
 
   $(".autocomplete").tinyAutocomplete({
     data: transformedTerms,
     maxItems: 5,
-    onSelect: function(el, val) {
+    onSelect: function (el, val) {
       if (val != null) {
         $(this).val(val.title);
-      } 
+      }
       $("#prefix-form").trigger("submit");
-    }
+    },
   });
 
   $(".autocomplete").trigger("focus");
