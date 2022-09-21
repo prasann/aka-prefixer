@@ -5,25 +5,28 @@ function listItem(text) {
     .append(
       $("<img>")
         .attr("src", "images/delete-30.png")
+        .attr("title", "delete the term")
         .attr("width", "16")
         .attr("height", "16")
         .attr("class", "list-item-del")
     );
 }
 
-function fillInOptions(savedAkaTerms) {
+function populateTermsInUI(savedAkaTerms) {
   $("#aka-terms").append(savedAkaTerms.map(listItem));
 }
 
-function deleteItem(event){
-    const clickedDeleteIcon = event.target;
-    const termToBeDeleted = $(clickedDeleteIcon).parent().find('span').text();
-    removeTerm(termToBeDeleted);
-    location.reload();
+function deleteItem(event) {
+  const clickedDeleteIcon = event.target;
+  const termToBeDeleted = $(clickedDeleteIcon).parent().find("span").text();
+  removeTerm(termToBeDeleted);
 }
 
 (async () => {
   const savedAkaTerms = await getSavedItems();
-  fillInOptions(savedAkaTerms);
-  $(".list-item-del").on("click", deleteItem)
+  populateTermsInUI(savedAkaTerms);
+  if (savedAkaTerms.length === 0) {
+    $(".no-items-present").show();
+  }
+  $(".list-item-del").on("click", deleteItem);
 })();

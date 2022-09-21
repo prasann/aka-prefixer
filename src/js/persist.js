@@ -15,7 +15,7 @@ function removeTerm(term) {
     const purgedSet = new Set(usedItemSet)
     purgedSet.delete(term)
     chrome.storage.sync.set({ akaTerms: [...purgedSet] }, function () {
-      callback()
+      location.reload();
     });
   });
 }
