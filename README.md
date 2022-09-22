@@ -9,6 +9,12 @@ A Chrome/Edge(Microsoft) plugin to prefix your URL with `https://aka.ms` on a ke
 `Cmd+Shift+K` - On Mac
 
 
+## Features
+
+* Auto suggests previously visited urls
+* Syncs across devices using browser sync
+* Ability to remove the suggestions
+
 ## Screenshots
 
 <img width="320" alt="Screenshot 2022-09-22 at 12 16 19 PM" src="https://user-images.githubusercontent.com/380340/191796166-ea21efcd-c4a7-4fab-be2a-6a216a19d7cc.png">
@@ -30,6 +36,3 @@ Edge:
 * No tracking of usage and urls.
 * No external storage of urls.
 * No analytics of usage.
-
-
-
