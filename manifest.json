@@ -1,8 +1,8 @@
 {
   "name": "AKA Prefixer",
-  "description": "Prefixes aka.ms to the keyword",
+  "description": "Fast and easy way to access shortened aka (https://aka.ms/{}) URLs",
   "author": "Prasanna Venkatesan",
-  "version": "0.1",
+  "version": "1.0.0",
   "manifest_version": 3,
   "permissions": ["storage"],
   "action": {
