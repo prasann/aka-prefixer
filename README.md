@@ -26,9 +26,9 @@ A Chrome/Edge(Microsoft) plugin to prefix your URL with `https://aka.ms` on a ke
 
 ## Links to the extensions
 
-Chrome: 
+Chrome: [https://aka.ms/aka-chrome-extension](https://aka.ms/aka-chrome-extension)
 
-Edge: 
+Edge: [https://aka.ms/aka-edge-extension](https://aka.ms/aka-edge-extension)
 
 ## Data usage
 
