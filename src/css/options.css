@@ -1,31 +1,39 @@
-#aka-terms{
-    max-height: 360px;
-    padding: 5px;
-    overflow: scroll;
+#aka-terms {
+  max-height: 360px;
+  padding: 5px;
+  overflow: scroll;
 }
 
-#aka-terms li{
-    display: flex;
-    margin: 5px 0;
-    padding: 8px 0;
-    border-bottom: 1px solid rgb(175, 175, 175);
+#aka-terms li {
+  display: flex;
+  margin: 5px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid rgb(175, 175, 175);
 }
 
-#aka-terms li img{
-    margin-left: 5px;
-    cursor: pointer;
+#aka-terms li img {
+  margin-left: 5px;
+  cursor: pointer;
 }
 
-.hint-text{
-    font-size: 90%;
+.hint-text {
+  font-size: 90%;
 }
 
 .instructions {
-    color: #d74270;
-    font-weight: bold;
+  color: #d74270;
+  font-weight: bold;
 }
 
-.no-items-present{
-    display: none;
-    color:rgb(150, 150, 150);
+.no-items-present {
+  display: none;
+  color: rgb(150, 150, 150);
+}
+
+.animate-ping-slow {
+  animation: ping 1.5s infinite;
+}
+
+.twit-icon {
+  margin-bottom: -7px;
 }
